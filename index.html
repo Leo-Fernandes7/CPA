@@ -13,14 +13,15 @@ html, body{
     height:100%;
     background:#000;
     overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 #imgTela{
     width:100vw;
     height:100vh;
-    object-fit:contain;
-    display:block;
-    margin:auto;
+    object-fit:cover;
 }
 </style>
 </head>
@@ -29,9 +30,12 @@ html, body{
 <img id="imgTela" src="imagem.jpg?t=1">
 
 <script>
-setInterval(function(){
-    document.getElementById("imgTela").src = "imagem.jpg?t=" + new Date().getTime();
-}, 20000);
+function atualizarImagem(){
+    const img = document.getElementById("imgTela");
+    img.src = "imagem.jpg?t=" + new Date().getTime();
+}
+
+setInterval(atualizarImagem, 15000);
 </script>
 
 </body>
